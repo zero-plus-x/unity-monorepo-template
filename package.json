@@ -1,0 +1,45 @@
+{
+  "workspaces": [
+    "Packages/*"
+  ],
+  "private": true,
+  "devDependencies": {
+    "@auto/bump": "^1.0.0",
+    "@auto/git": "^1.0.0",
+    "@auto/log": "^1.0.0",
+    "@auto/npm": "^1.0.0",
+    "@auto/start-plugin": "^1.0.0",
+    "@auto/utils": "^1.0.0",
+    "@bubble-dev/eslint-config": "^1.0.0",
+    "@bubble-dev/start-preset": "^1.0.0",
+    "@bubble-dev/typescript-config": "^1.0.0",
+    "@start/plugin": "^1.0.0",
+    "@start/plugin-sequence": "^1.0.0",
+    "execa": "^4.0.0",
+    "typescript": "^3.7.5"
+  },
+  "scripts": {
+    "verdacio": "docker run --rm --name npm -p 4873:4873 -v $(pwd)/verdacio-config.yml:/verdaccio/conf/config.yaml verdaccio/verdaccio"
+  },
+  "start": {
+    "file": "./tasks"
+  },
+  "auto": {
+    "initialType": "minor",
+    "autoNamePrefix": "@",
+    "zeroBreakingChangeType": "major",
+    "npm": {
+      "registry": "http://localhost:4873",
+      "access": "public"
+    },
+    "shouldWriteChangelogFiles": true
+  },
+  "eslintConfig": {
+    "extends": "@bubble-dev/eslint-config"
+  },
+  "eslintIgnore": [
+    "build/",
+    "coverage/",
+    "node_modules/"
+  ]
+}
