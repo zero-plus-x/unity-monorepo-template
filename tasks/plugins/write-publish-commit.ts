@@ -15,8 +15,8 @@ export const writePublishCommit = (prefixes: TPrefixes, Options: TWorkspacesOpti
     const addPaths = bumps.reduce((result, bump) => {
       result.push(path.join(bump.dir, 'package.json'))
       result.push(path.join(bump.dir, 'package.json.meta'))
-      result.push(path.join(bump.dir, 'changelog.md'))
-      result.push(path.join(bump.dir, 'changelog.md.meta'))
+      result.push(path.join(bump.dir, 'CHANGELOG.md'))
+      result.push(path.join(bump.dir, 'CHANGELOG.md.meta'))
 
       return result
     }, [] as string[])

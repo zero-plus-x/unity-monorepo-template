@@ -1,0 +1,7 @@
+{
+  "name": "com.your-company.template-package",
+  "version": "0.0.0",
+  "displayName": "Template Package",
+  "description": "This is a template package",
+  "type": "tool"
+}
