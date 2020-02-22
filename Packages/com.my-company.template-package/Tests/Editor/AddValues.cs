@@ -1,7 +1,7 @@
 using NUnit.Framework;
 using TemplatePackage;
 
-namespace RuntimeTests
+namespace EditorTests
 {
   public class Tests_AddValues
   {

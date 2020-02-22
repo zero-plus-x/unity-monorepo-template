@@ -1,5 +1,5 @@
 {
-    "name": "MyCompany.TemplatePackage.Runtime",
+    "name": "MyCompany.TemplatePackage.Editor",
     "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],
