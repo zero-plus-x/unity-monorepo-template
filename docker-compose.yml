@@ -1,0 +1,29 @@
+version: '3'
+services:
+  lfs:
+    image: "jasonwhite0/rudolfs:latest"
+    ports:
+      - "8080:8080"
+    volumes:
+      - ${LFS_CACHE_PATH}:/data
+    restart: always
+    environment:
+      - AWS_ACCESS_KEY_ID
+      - AWS_SECRET_ACCESS_KEY
+      - AWS_DEFAULT_REGION
+      - LFS_ENCRYPTION_KEY
+      - LFS_S3_BUCKET
+      - LFS_MAX_CACHE_SIZE
+      - LFS_CACHE_PATH
+    entrypoint:
+      - /tini
+      - --
+      - /rudolfs
+      - --cache-dir
+      - /data
+      - --key
+      - ${LFS_ENCRYPTION_KEY}
+      - --s3-bucket
+      - ${LFS_S3_BUCKET}
+      - --max-cache-size
+      - ${LFS_MAX_CACHE_SIZE}
