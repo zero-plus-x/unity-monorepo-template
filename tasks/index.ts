@@ -4,6 +4,7 @@ import { TGitOptions } from '@auto/git'
 import { TWorkspacesOptions } from '@auto/utils'
 import { TBumpOptions } from '@auto/bump'
 import { TNpmOptions } from '@auto/npm'
+import { TRudolfsConfig } from './plugins/run-rudolfs'
 
 export const runVerdaccio = async () => {
   const path = await import('path')
@@ -18,6 +19,22 @@ export const runVerdaccio = async () => {
   )
 }
 
+export const runRudolfs = async () => {
+  const { runRudolfs } = await import('./plugins/run-rudolfs')
+  const { waitForPort } = await import('./plugins/wait-for-port')
+
+  const rudolfsConfig: TRudolfsConfig = {
+    accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+    region: process.env.AWS_DEFAULT_REGION,
+    bucketName: process.env.LFS_S3_BUCKET,
+  }
+
+  return sequence(
+    runRudolfs(rudolfsConfig),
+    waitForPort('8080')
+  )
+}
 
 export const publish = async () => {
   const {
