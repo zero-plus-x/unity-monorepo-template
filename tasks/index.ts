@@ -5,6 +5,20 @@ import { TWorkspacesOptions } from '@auto/utils'
 import { TBumpOptions } from '@auto/bump'
 import { TNpmOptions } from '@auto/npm'
 
+export const runVerdaccio = async () => {
+  const path = await import('path')
+  const { runVerdaccio } = await import('./plugins/run-verdaccio')
+  const { waitForPort } = await import('./plugins/wait-for-port')
+
+  const configPath = path.resolve('tasks/config/verdaccio.yml')
+
+  return sequence(
+    runVerdaccio(configPath),
+    waitForPort('4873')
+  )
+}
+
+
 export const publish = async () => {
   const {
     getPackagesBumps,
