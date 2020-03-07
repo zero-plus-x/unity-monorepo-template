@@ -15,11 +15,10 @@
     "@bubble-dev/typescript-config": "^1.0.0",
     "@start/plugin": "^1.0.0",
     "@start/plugin-sequence": "^1.0.0",
+    "@types/node-fetch": "^2.5.5",
     "execa": "^4.0.0",
+    "node-fetch": "^2.6.0",
     "typescript": "^3.7.5"
-  },
-  "scripts": {
-    "verdacio": "docker run --rm --name npm -p 4873:4873 -v $(pwd)/verdacio-config.yml:/verdaccio/conf/config.yaml verdaccio/verdaccio"
   },
   "start": {
     "file": "./tasks"

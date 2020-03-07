@@ -66,3 +66,6 @@ crashlytics-build.properties
 # npm
 node_modules
 yarn-error.log
+
+# env
+.env
