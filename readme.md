@@ -44,16 +44,29 @@ Any package that appears under your Project's Packages folder is **`embedded`** 
 Any package references that are defined in **`dependencies`** attribute in Project Manifest file will be downloaded and installed by Package Manager...  
 [Dependencies](https://docs.unity3d.com/Manual/upm-dependencies.html)
 
-Auto Tools
+## Auto Tools
 
-- commit messages
-- managed cross dependencies
-- managed publishing
+[Auto Tools](https://github.com/bubble-dev/_/tree/master/packages/auto) is a monorepo management tool, which helps to manage package releases, versions and cross-dependencies, based on commit messages.
 
-Private registry
+### Commit messages
 
-- verdacio
+Auto tools uses commit messages to determine which release type to apply to the package. To be readable by Auto, the commit message must have a certain structure
+```
+<release type> <pkg1>[, <pkg2>]: commit message
+```
+**`release type`** can be any unicode text. You have to provide configuration to Auto, describing desired prefixes. To assist in writing proper commit messages the command `yarn start commit` runs a prompt.
 
-Git LFS
+## Private registry
 
-- rudolfs
+You can publish the packages directly to `npm` or roll your own registry.
+
+### Verdaccio
+
+[Verdaccio](https://verdaccio.org/) is lightweight npm registry. It can be run in a Docker container for private publishing or testing.
+
+## Git LFS
+
+[Git LFS](https://git-lfs.github.com/) is an extension to Git, to manage large files. It can be used to store different binary assets in a git repo. Usually LFS protocol is handled by the same git repo host. The trick is that you can forward LFS upload to a different endpoint, for example S3.
+
+### Rudolfs
+[Rudolfs](https://github.com/jasonwhite/rudolfs) is the LFS proxy server, that translates LFS protocol to S3 compilant one. It can be run as a Docker container on local machine to store project assets on S3. 
