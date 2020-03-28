@@ -46,7 +46,7 @@ Any package references that are defined in **`dependencies`** attribute in Proje
 
 ## Auto Tools
 
-[Auto Tools](https://github.com/bubble-dev/_/tree/master/packages/auto) is a monorepo management tool, which helps to manage package releases, versions and cross-dependencies, based on commit messages.
+[Auto Tools](https://github.com/nextools/metarepo/tree/master/packages/auto) is a monorepo management tool, which helps to manage package releases, versions and cross-dependencies, based on commit messages.
 
 ### Commit messages
 
