@@ -11,6 +11,42 @@
     "@auto/workspaces" "^1.0.0"
     semver "^7.1.1"
 
+"@auto/changelog@^0.1.2":
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/@auto/changelog/-/changelog-0.1.2.tgz#382725a66d7d04197fab78f4bc333380a683078c"
+  integrity sha512-pmYSMMXAn/iIeXO6HqJIB/hnPKM/BENrwm+KuNuOPD7CaI9oLm08RRUschNjIXlmUPdaeMfhkcbSwwbisV7fYw==
+  dependencies:
+    "@auto/core" "^0.1.3"
+    execa "^4.0.0"
+    pifs "^1.0.0"
+    tsfn "^1.1.0"
+
+"@auto/commit-prompt@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@auto/commit-prompt/-/commit-prompt-0.1.0.tgz#8b3f569219de29bc6c5fbba5bb889f02dccf94b7"
+  integrity sha512-bD9R5wXcsecJypagCaxpvYCupqygnRynWbdr1h9Qe2BmZeUguspFTmV5PdBQPsfy+on30nI6j1BOk/WolzQEWQ==
+  dependencies:
+    "@auto/core" "^0.1.0"
+    escape-string-regexp "^2.0.0"
+    execa "^4.0.0"
+    prompts "^2.3.0"
+    tsfn "^1.1.0"
+
+"@auto/core@^0.1.0", "@auto/core@^0.1.2", "@auto/core@^0.1.3":
+  version "0.1.3"
+  resolved "https://registry.yarnpkg.com/@auto/core/-/core-0.1.3.tgz#90b71773fed42af1789a6772ad9aae6fe80ae2a6"
+  integrity sha512-BergMSfgbeWDiQOIZu2HdgvrtxmJr1qgnSmtokHJBawmanP4HEsD7Hn96k5y+CtF05Rq06S6Rpu1zSTSvKp7bA==
+  dependencies:
+    dleet "^1.0.0"
+    escape-string-regexp "^2.0.0"
+    execa "^4.0.0"
+    fast-glob "^3.0.0"
+    p-all "^2.0.0"
+    pifs "^1.0.0"
+    prompts "^2.3.1"
+    semver "^7.0.0"
+    tsfn "^1.1.0"
+
 "@auto/fs@^1.0.0":
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/@auto/fs/-/fs-1.0.0.tgz#32b30fb07660c1f87b28d8577af9fc447a899221"
@@ -29,6 +65,16 @@
     "@auto/utils" "^1.0.0"
     execa "^4.0.0"
     prompts "^2.0.0"
+
+"@auto/github@^0.1.1":
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/@auto/github/-/github-0.1.1.tgz#d8cbfb071c00e458e0371a8be7bfa27d0c9f877a"
+  integrity sha512-YnijvawhYSWxo7bmHBAbPqyk4AvXR0ktY7Aqdb2vDr+2GisGh45pZZXOyqJPtYA6CvCazOI5PRHRYvAz7+8LLQ==
+  dependencies:
+    "@auto/core" "^0.1.2"
+    node-fetch "^2.6.0"
+    p-all "^2.1.0"
+    tsfn "^1.1.0"
 
 "@auto/log@^1.0.0":
   version "1.0.0"
@@ -50,6 +96,15 @@
     "@auto/utils" "^1.0.0"
     execa "^4.0.0"
 
+"@auto/slack@^0.1.1":
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/@auto/slack/-/slack-0.1.1.tgz#4fa2e15e3e749cf50c89ea6b665b125d867c266f"
+  integrity sha512-HhYDAQSLvB73wBBsSRwm+gHeELC3WuK879K2ckv5V6MaZ9zYmV6cxPAHlupEMjJ1DThFU/iTf5mI0Fw/n0N0Sg==
+  dependencies:
+    "@auto/core" "^0.1.2"
+    node-fetch "^2.6.0"
+    tsfn "^1.1.0"
+
 "@auto/start-plugin@^1.0.0":
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/@auto/start-plugin/-/start-plugin-1.0.0.tgz#a64ca8d7fa51fd1901d399aae16d5e0b34f41224"
@@ -64,6 +119,23 @@
     "@start/plugin" "^1.0.0"
     p-all "^2.1.0"
     prompts "^2.0.0"
+
+"@auto/tag@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@auto/tag/-/tag-0.1.0.tgz#e62c3b048a77bb5bf24abc388fc78b8d0c489435"
+  integrity sha512-+rOXo+ayz604s2ZDu8IL7p9Mt32hOsygJbWCvi7ZYiTC7lkGNebMnfs/ubrDyATL5cFOTuNbyd3jAZlb0xwxxQ==
+  dependencies:
+    "@auto/core" "^0.1.0"
+    execa "^4.0.0"
+
+"@auto/telegram@^0.1.1":
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/@auto/telegram/-/telegram-0.1.1.tgz#2970319ba57427e1a45410cc220b0c757802044b"
+  integrity sha512-buPp+6h6gjg+/1G03XeTEKdb9epmrnHx6nkvn9Z1DvGXHf9WEUEVqMnwWPYLuZXdZnlxZST49djmgdV8EiaqIA==
+  dependencies:
+    "@auto/core" "^0.1.2"
+    node-fetch "^2.6.0"
+    tsfn "^1.1.0"
 
 "@auto/utils@^1.0.0":
   version "1.0.0"
@@ -1833,7 +1905,7 @@
     "@babel/runtime" "^7.4.2"
     "@start/plugin" "^1.0.0"
 
-"@start/plugin-find@^1.0.0":
+"@start/plugin-find@^1.0.0", "@start/plugin-find@^1.0.1":
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/@start/plugin-find/-/plugin-find-1.0.1.tgz#a5cca40c6cf20e261f6344862e267a1047fdfe12"
   integrity sha512-63KUoYzWA5UuxEioqXE/4gfAMgx3kHZrZmp2mCB1nj1yTgyGZ5w9qk1KCzdHAZnypoKUMsbxPJAG4HHpzraX3w==
@@ -8775,6 +8847,14 @@ prompts@^2.0.0, prompts@^2.1.0:
     kleur "^3.0.3"
     sisteransi "^1.0.3"
 
+prompts@^2.3.0, prompts@^2.3.1:
+  version "2.3.2"
+  resolved "https://registry.yarnpkg.com/prompts/-/prompts-2.3.2.tgz#480572d89ecf39566d2bd3fe2c9fccb7c4c0b068"
+  integrity sha512-Q06uKs2CkNYVID0VqwfAl9mipo99zkBv/n2JtWY89Yxa3ZabWSrs0e2KTudKVa3peLUvYXMefDqIleLPVUBZMA==
+  dependencies:
+    kleur "^3.0.3"
+    sisteransi "^1.0.4"
+
 prop-types@^15.6.2, prop-types@^15.7.2:
   version "15.7.2"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
@@ -9555,6 +9635,11 @@ semver@^6.0.0, semver@^6.1.2, semver@^6.3.0:
   resolved "https://registry.yarnpkg.com/semver/-/semver-6.3.0.tgz#ee0a64c8af5e8ceea67687b133761e1becbd1d3d"
   integrity sha512-b39TBaTSfV6yBrapU89p5fKekE2m/NwnDocOVruQFS1/veMgdzuPcnOM34M6CwxW8jH/lxEa5rBoDeUwu5HHTw==
 
+semver@^7.0.0:
+  version "7.1.3"
+  resolved "https://registry.yarnpkg.com/semver/-/semver-7.1.3.tgz#e4345ce73071c53f336445cfc19efb1c311df2a6"
+  integrity sha512-ekM0zfiA9SCBlsKa2X1hxyxiI4L3B6EbVJkkdgQXnSEEaHlGdvyodMruTiulSRWMMB4NeIuYNMC9rTKTz97GxA==
+
 semver@^7.1.1:
   version "7.1.1"
   resolved "https://registry.yarnpkg.com/semver/-/semver-7.1.1.tgz#29104598a197d6cbe4733eeecbe968f7b43a9667"
@@ -9708,6 +9793,11 @@ sisteransi@^1.0.3:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/sisteransi/-/sisteransi-1.0.4.tgz#386713f1ef688c7c0304dc4c0632898941cad2e3"
   integrity sha512-/ekMoM4NJ59ivGSfKapeG+FWtrmWvA1p6FBZwXrqojw90vJu8lBmrTxCMuBCydKtkaUe2zt4PlxeTKpjwMbyig==
+
+sisteransi@^1.0.4:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/sisteransi/-/sisteransi-1.0.5.tgz#134d681297756437cc05ca01370d3a7a571075ed"
+  integrity sha512-bLGGlR1QxBcynn2d5YmDX4MGjlZvy2MRBDRNHLJ8VI6l6+9FUiyTFNJ0IveOSP0bcXgVDPRcfGqA0pjaqUpfVg==
 
 slash@^2.0.0:
   version "2.0.0"
@@ -10525,6 +10615,11 @@ tsfn@^1.0.0:
   resolved "https://registry.yarnpkg.com/tsfn/-/tsfn-1.0.0.tgz#246f08e79fbde3646cca0ea256d90f76a987f07d"
   integrity sha512-xhe42Svgvo8gwjgVtUY/X8Gn8MYmkK6TT28AENCW7ptkM2LiuAk0UdV7ptEIFs4d5QQ74MvhUfEs8ttXhReT6Q==
 
+tsfn@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/tsfn/-/tsfn-1.1.0.tgz#e54ac86432a01fce61a5a82883c3078a839f1941"
+  integrity sha512-VygSUEZm+Yc6C/ZKpggDr2AAZV8QO8CS/55T7e49vnuN0U2s8PN8YQiRxHduJNsbQ31fqoJ5yWvXLWsCfAHCcw==
+
 tslib@^1.8.1, tslib@^1.9.0:
   version "1.10.0"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.10.0.tgz#c3c19f95973fb0a62973fb09d90d961ee43e5c8a"
@@ -10593,6 +10688,11 @@ typeon@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/typeon/-/typeon-1.0.0.tgz#626bc3c414e1b775398d919d080461b5cb612312"
   integrity sha512-n+ULGa43bGjHmQkz0SeA/+cjvtg8NV0A7S6wlFG56vXLUIXUlhO/qiAxcUsogiLYcDQqO25NRr0vE2YZRX6sLA==
+
+typeon@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/typeon/-/typeon-1.0.1.tgz#52077c1cce2fc174742146acbe9adf7e28697660"
+  integrity sha512-kF6itI3VwwyUON9AOY7UbklMWp9NMNTJuInQJavGtn4Na3Qfv9mk/sMfWfWgrIb3mHB3ZeFu4OXIUVhLV1FlUA==
 
 typescript@^3.7.5:
   version "3.7.5"
