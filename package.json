@@ -4,34 +4,66 @@
   ],
   "private": true,
   "devDependencies": {
-    "@auto/bump": "^1.0.0",
-    "@auto/git": "^1.0.0",
-    "@auto/log": "^1.0.0",
-    "@auto/npm": "^1.0.0",
-    "@auto/start-plugin": "^1.0.0",
-    "@auto/utils": "^1.0.0",
+    "@auto/changelog": "^0.1.2",
+    "@auto/commit-prompt": "^0.1.0",
+    "@auto/core": "^0.1.3",
+    "@auto/github": "^0.1.1",
+    "@auto/slack": "^0.1.1",
+    "@auto/tag": "^0.1.0",
+    "@auto/telegram": "^0.1.1",
     "@bubble-dev/eslint-config": "^1.0.0",
     "@bubble-dev/start-preset": "^1.0.0",
     "@bubble-dev/typescript-config": "^1.0.0",
     "@start/plugin": "^1.0.0",
+    "@start/plugin-copy": "^1.0.0",
+    "@start/plugin-find": "^1.0.1",
     "@start/plugin-sequence": "^1.0.0",
     "@types/node-fetch": "^2.5.5",
     "execa": "^4.0.0",
     "node-fetch": "^2.6.0",
+    "tsfn": "^1.1.0",
+    "typeon": "^1.0.1",
     "typescript": "^3.7.5"
   },
   "start": {
-    "file": "./tasks"
+    "file": "tasks/",
+    "auto": {
+      "shouldMakeGitTags": true,
+      "shouldWriteChangelogFiles": true
+    }
   },
   "auto": {
-    "initialType": "minor",
-    "autoNamePrefix": "@",
-    "zeroBreakingChangeType": "major",
     "npm": {
-      "registry": "http://localhost:4873",
+      "publishSubDirectory": "build",
       "access": "public"
     },
-    "shouldWriteChangelogFiles": true
+    "prefixes": {
+      "major": "💥",
+      "minor": "🌱",
+      "patch": "🐞",
+      "publish": "📦",
+      "dependencies": "♻️",
+      "initial": "🐣",
+      "lint": "🚷",
+      "test": "👾",
+      "docs": "📝",
+      "refactor": "🛠",
+      "wip": "🚧",
+      "screenshots": "📸"
+    },
+    "commit": {
+      "major": "Breaking Change",
+      "minor": "New feature",
+      "patch": "Bugfix",
+      "initial": "Initial",
+      "depepdencies": "Dependencies",
+      "lint": "Lint",
+      "test": "Test",
+      "docs": "Docs",
+      "refactor": "Refactor",
+      "wip": "WIP",
+      "screenshots": "Snapshots / Screenshots"
+    }
   },
   "eslintConfig": {
     "extends": "@bubble-dev/eslint-config"
