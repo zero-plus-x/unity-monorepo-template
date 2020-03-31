@@ -1,10 +1,11 @@
+import { TReadonly } from 'tsfn'
 import plugin from '@start/plugin'
-import { TPluginData } from '@auto/start-plugin'
+import { THookProps } from '@auto/core'
 
 const PORT = 4873
 
 export const runVerdaccio = (configPath: string) =>
-  plugin<TPluginData, any>('run-verdaccio', () => async () => {
+  plugin<TReadonly<THookProps>, any>('run-verdaccio', () => async () => {
     const { default: execa } = await import('execa')
 
     execa(
