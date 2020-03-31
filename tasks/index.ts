@@ -1,23 +1,41 @@
 import plugin from '@start/plugin'
+import sequence from '@start/plugin-sequence'
 import { TGithubConfig } from '@auto/github'
 import { TSlackConfig } from '@auto/slack'
 import { TTelegramConfig } from '@auto/telegram'
-import sequence from '@start/plugin-sequence'
-import { TRudolfsConfig } from './plugins/run-rudolfs'
 
 export const runRudolfs = async () => {
   const { runRudolfs } = await import('./plugins/run-rudolfs')
   const { waitForPort } = await import('./plugins/wait-for-port')
 
-  const rudolfsConfig: TRudolfsConfig = {
-    accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
-    region: process.env.AWS_DEFAULT_REGION,
-    bucketName: process.env.LFS_S3_BUCKET,
+  const accessKeyId = process.env.AWS_ACCESS_KEY_ID
+  const secretAccessKey = process.env.AWS_SECRET_ACCESS_KEY
+  const region = process.env.AWS_DEFAULT_REGION
+  const bucketName = process.env.LFS_S3_BUCKET
+
+  if (typeof accessKeyId !== 'string') {
+    throw new Error('Environment variable "AWS_ACCESS_KEY_ID" is not set')
+  }
+
+  if (typeof secretAccessKey !== 'string') {
+    throw new Error('Environment variable "AWS_SECRET_ACCESS_KEY" is not set')
+  }
+
+  if (typeof region !== 'string') {
+    throw new Error('Environment variable "AWS_DEFAULT_REGION" is not set')
+  }
+
+  if (typeof bucketName !== 'string') {
+    throw new Error('Environment variable "LFS_S3_BUCKET" is not set')
   }
 
   return sequence(
-    runRudolfs(rudolfsConfig),
+    runRudolfs({
+      accessKeyId,
+      secretAccessKey,
+      region,
+      bucketName,
+    }),
     waitForPort('8080')
   )
 }

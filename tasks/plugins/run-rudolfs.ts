@@ -1,6 +1,7 @@
 import path from 'path'
 import plugin from '@start/plugin'
-import { TPluginData } from '@auto/start-plugin'
+import { THookProps } from '@auto/core'
+import { TReadonly } from 'tsfn'
 
 const PORT = 8080
 
@@ -21,7 +22,7 @@ export const runRudolfs = ({
   cachePath = path.resolve('./lfscache'),
   maxCacheSize = 10,
 }: TRudolfsConfig) =>
-  plugin<TPluginData, any>('run-rudolfs', () => async () => {
+  plugin<TReadonly<THookProps>, any>('run-rudolfs', () => async () => {
     const { default: execa } = await import('execa')
 
     if (typeof accessKeyId !== 'string' || accessKeyId.length === 0) {

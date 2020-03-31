@@ -1,5 +1,5 @@
 import plugin from '@start/plugin'
-import { jsonParse, TJsonMap } from 'typeon'
+import { TJsonMap } from 'typeon'
 
 export const buildPackageJson = (dir: string) =>
   plugin('buildPackageJson', ({ logPath }) => async () => {
@@ -7,7 +7,7 @@ export const buildPackageJson = (dir: string) =>
     const { readFile, writeFile } = await import('pifs')
     const packageJsonPath = resolve(dir, 'package.json')
 
-    const packageJson = jsonParse(await readFile(packageJsonPath, 'utf8'))
+    const packageJson: TJsonMap = JSON.parse(await readFile(packageJsonPath, 'utf8'))
     const newPackageJsonPath = resolve(dir, 'build/package.json')
     const newPackageJson = Object.entries(packageJson).reduce((result, [key, value]) => {
       switch (key) {
