@@ -3,7 +3,7 @@ import plugin from '@start/plugin'
 
 const sleep = (timeout: number) => new Promise((resolve) => setTimeout(resolve, timeout))
 
-const fetchPort = async (port: string) => {
+const fetchPort = async (port: number) => {
   try {
     await fetch(`http://localhost:${port}`)
 
@@ -13,9 +13,8 @@ const fetchPort = async (port: string) => {
   }
 }
 
-export const waitForPort = (port: string) =>
-  plugin('wait-for-port', () => async () => {
-    while (!(await fetchPort(port))) {
-      await sleep(200)
-    }
-  })
+export const waitForPort = (port: number) => plugin('wait-for-port', () => async () => {
+  while (!(await fetchPort(port))) {
+    await sleep(200)
+  }
+})

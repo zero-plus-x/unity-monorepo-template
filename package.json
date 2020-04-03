@@ -3,6 +3,9 @@
     "Packages/*"
   ],
   "private": true,
+  "scripts": {
+    "start": "tasks/cli/index.js"
+  },
   "devDependencies": {
     "@auto/changelog": "^0.1.0",
     "@auto/commit-prompt": "^0.1.0",
@@ -11,13 +14,20 @@
     "@auto/slack": "^0.1.0",
     "@auto/tag": "^0.1.0",
     "@auto/telegram": "^0.1.0",
-    "@bubble-dev/eslint-config": "^1.0.0",
-    "@bubble-dev/typescript-config": "^1.0.0",
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.0",
+    "@babel/preset-typescript": "^7.9.0",
+    "@babel/register": "^7.9.0",
+    "@nextools/eslint-config": "^0.1.0",
+    "@nextools/typescript-config": "^0.1.0",
     "@start/plugin": "^1.0.0",
     "@start/plugin-copy": "^1.0.0",
     "@start/plugin-find": "^1.0.0",
     "@start/plugin-sequence": "^1.0.0",
+    "@start/reporter-verbose": "^1.0.0",
     "@types/node-fetch": "^2.5.5",
+    "dotenv": "^8.2.0",
+    "eslint": "^6.8.0",
     "execa": "^4.0.0",
     "node-fetch": "^2.6.0",
     "tsfn": "^1.0.0",
@@ -65,7 +75,7 @@
     }
   },
   "eslintConfig": {
-    "extends": "@bubble-dev/eslint-config"
+    "extends": "@nextools/eslint-config"
   },
   "eslintIgnore": [
     "build/",
