@@ -44,15 +44,8 @@ Any package references that are defined in **`dependencies`** attribute in Proje
 
 ## Auto Tools
 
-[Auto Tools](https://github.com/nextools/metarepo/tree/master/packages/auto) is a monorepo management tool, which helps to manage package releases, versions and cross-dependencies, based on commit messages.
-
-### Commit messages
-
-Auto tools uses commit messages to determine which release type to apply to the package. To be readable by Auto, the commit message must have a certain structure
-```
-<release type> <pkg1>[, <pkg2>]: commit message
-```
-**`release type`** can be any unicode text. You have to provide configuration to Auto, describing desired prefixes. To assist in writing proper commit messages the command `yarn start commit` runs a prompt.
+[Auto Tools](https://github.com/nextools/metarepo/tree/master/packages/auto) is a monorepo management tool, which helps to manage package releases, versions and cross-dependencies, based on commit messages.  
+[More details in Wiki page](https://github.com/zero-plus-x/unity-monorepo-template/wiki/Auto-Tools)
 
 ## Private registry
 
