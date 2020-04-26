@@ -3,7 +3,7 @@ import { TGithubConfig } from '@auto/github'
 import { TSlackConfig } from '@auto/slack'
 import { TTelegramConfig } from '@auto/telegram'
 
-export const publish = () => plugin('publish', ({ reporter }) => async () => {
+export const publish = () => plugin('publish', ({ reporter, logMessage }) => async () => {
   const { auto } = await import('@auto/core')
   const { writePublishTags } = await import('@auto/tag')
   const { getStartOptions } = await import('../utils/get-start-options')
@@ -43,28 +43,34 @@ export const publish = () => plugin('publish', ({ reporter }) => async () => {
     chatId: process.env.AUTO_TELEGRAM_CHAT_ID as string,
   }
 
-  await auto({
-    prePublishCommit: async (props) => {
+  try {
+    await auto({
+      prePublishCommit: async (props) => {
       // Write changelog files
-      if (shouldWriteChangelogFiles) {
-        const { writeChangelogFiles } = await import('@auto/changelog')
+        if (shouldWriteChangelogFiles) {
+          const { writeChangelogFiles } = await import('@auto/changelog')
 
-        await writeChangelogFiles(props)
-      }
-    },
-    prePublish: async (props) => {
+          await writeChangelogFiles(props)
+        }
+      },
+      prePublish: async (props) => {
       // Prepare package
-      const { forEachRelease } = await import('./for-each-release')
-      const { preparePackage } = await import('./prepare-package')
-      const taskRunner = await forEachRelease(preparePackage)
+        const { forEachRelease } = await import('./for-each-release')
+        const { preparePackage } = await import('./prepare-package')
+        const taskRunner = await forEachRelease(preparePackage)
 
-      await taskRunner(reporter)(props)
-    },
-    prePush: shouldMakeGitTags && writePublishTags,
-    postPush: concurrentHooks(
-      shouldMakeGitHubReleases && makeGithubReleases(githubConfig),
-      shouldSendSlackMessage && sendSlackMessage(slackConfig),
-      shouldSendTelegramMessage && sendTelegramMessage(telegramConfig)
-    ),
-  })
+        await taskRunner(reporter)(props)
+      },
+      prePush: shouldMakeGitTags && writePublishTags,
+      postPush: concurrentHooks(
+        shouldMakeGitHubReleases && makeGithubReleases(githubConfig),
+        shouldSendSlackMessage && sendSlackMessage(slackConfig),
+        shouldSendTelegramMessage && sendTelegramMessage(telegramConfig)
+      ),
+    })
+  } catch (e) {
+    logMessage(e?.message)
+
+    throw null
+  }
 })

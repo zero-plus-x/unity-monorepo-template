@@ -69,3 +69,6 @@ yarn-error.log
 
 # env
 .env
+
+# activation files
+activation/

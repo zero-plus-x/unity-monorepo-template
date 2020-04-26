@@ -2,12 +2,7 @@ import plugin from '@start/plugin'
 
 const PORT = 8080
 
-export type TLfsConfig = {
-  cachePath?: string,
-  maxCacheSize?: number,
-}
-
-const runRudolfs = plugin('run-rudolfs', () => async () => {
+export const runLfs = () => plugin('run-lfs', () => async () => {
   const { default: execa } = await import('execa')
 
   const accessKeyId = process.env.AWS_ACCESS_KEY_ID
@@ -61,14 +56,4 @@ const runRudolfs = plugin('run-rudolfs', () => async () => {
       stderr: process.stderr,
     }
   )
-})
-
-export const runLfs = () => plugin('run-lfs', ({ reporter }) => async () => {
-  const { default: sequence } = await import('@start/plugin-sequence')
-  const { waitForPort } = await import('./wait-for-port')
-
-  return sequence(
-    runRudolfs,
-    waitForPort(PORT)
-  )(reporter)()
 })

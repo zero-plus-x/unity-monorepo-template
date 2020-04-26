@@ -1,8 +1,8 @@
 import plugin from '@start/plugin'
 
-const PORT = 4873
+export const PORT = 4873
 
-const runVerdaccio = plugin('run-verdaccio', () => async () => {
+export const runNpm = () => plugin<{}, any>('run-npm', () => async () => {
   const { default: execa } = await import('execa')
   const configPath = require.resolve('../config/verdaccio.yml')
 
@@ -25,14 +25,4 @@ const runVerdaccio = plugin('run-verdaccio', () => async () => {
       stderr: process.stderr,
     }
   )
-})
-
-export const runNpm = () => plugin<{}, any>('run-npm', ({ reporter }) => async () => {
-  const { default: sequence } = await import('@start/plugin-sequence')
-  const { waitForPort } = await import('./wait-for-port')
-
-  return sequence(
-    runVerdaccio,
-    waitForPort(PORT)
-  )(reporter)()
 })
